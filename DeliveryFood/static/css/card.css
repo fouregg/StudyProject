@@ -1,0 +1,40 @@
+@font-face{
+            font-family: "proximanova_bold";
+            src: url(../fonts/proximanova_bold.otf);
+        }
+        @font-face{
+            font-family: "nunito-semiBold";
+            src: url(../fonts/Nunito-SemiBoldItalic.ttf);
+        }
+        .btn-outline-primary{
+            border-color: rgb(255,105,0);
+            color:darkgreen;
+            border-style: dashed;
+        }
+        .btn-outline-primary:hover{
+            background-color:rgb(255,255,255);
+            color:darkgreen;
+            border-color: rgb(255,125,120);
+            border-style: solid;
+        }
+        .btn-check:focus + .btn-outline-primary, .btn-outline-primary:focus {
+            background-color: rgb(255,105,0);
+            box-shadow: 0 0 0 0.1rem rgba(255, 105, 0, 0.3);
+        }
+        .card-title{
+            font-family: proximanova_bold;
+            text-align: center;
+        }
+        .card-text{
+            font-family: nunito-semiBold;
+        }
+        .card-body{
+            background-color: #f3f3f7;
+        }
+        .card-img-top{
+            width: 100%;
+            height: 15vw;
+            object-fit: cover;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }

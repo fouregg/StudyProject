@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends "base.html" %}
+    {% load static %}
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+</head>
+<body>
+{% block contend %}
+<script>
+    function unHide(struct){
+        console.log(struct);
+        document.getElementById(struct).style.display = "block";
+    }
+</script>
+        {% for pos in food_list %}
+        {% if forloop.counter0|divisibleby:"4" or forloop.counter0 == 0 %}
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% endif %}
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    {% with name=pos.id|stringformat:"i" %}
+                    <img class="card-img-top" style="max-height: 200px; max-width: 300px;" src={% static  "/food/img"|add:name|add:".png"  %} alt="Card image cap">
+                    {% endwith %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ pos.name }}</h5>
+                        <p class="card-text">{{ pos.description }}</p>
+                        <div style="justify-content: center; display: none" id="{{ pos.id }}">
+                            <label class="toggle" id="tog">
+                                <input type="checkbox">
+                                <span class="slider"></span>
+                                <span class="labels" data-on="ПИЦЦА" data-off="ПЕПСИ"></span>
+                            </label>
+                        </div>
+                        <div class = "d-grid gap-2">
+                            <button type="button" onclick="unHide({{ pos.id }})" class="btn btn-outline-primary click">{{ pos.cost }} рублей</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% if forloop.counter0|divisibleby:"4" and forloop.counter0 != 0 %}
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
+</body>
+</html>
